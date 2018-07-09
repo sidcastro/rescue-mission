@@ -1,0 +1,9 @@
+<h1>Questions</h1>
+
+<ul class="unstyled">
+  <% @questions_in_reverse_order.each do |question| %>
+  <li>
+    <%= question.title %>
+  </li>
+  <% end %>
+</ul>
