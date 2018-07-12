@@ -11,5 +11,7 @@
   <% end %>
 </ul>
 
+<div><%= link_to "Edit this Question", edit_question_path(@question) %>
 <div><%= link_to "I have an answer", new_question_answer_path(@question) %>
 <div><%= link_to "Back to Index", questions_path %>
+<div><%= link_to "Delete this Question", question_path(@question), method: :delete, data: { confirm: 'Are you sure?'} %>

@@ -23,9 +23,29 @@ class QuestionsController < ApplicationController
     end
   end
 
-  private
+  def edit
+    @question = Question.find(params[:id])
+  end
 
-  # Never trust parameters from the scary internet, only allow the white list through
+  def update
+    @question = Question.find(params[:id])
+
+    if @question.update(question_params)
+      redirect_to @question, notice: 'Question was successfully updated!'
+    else
+      render action: 'edit'
+    end
+  end
+
+  def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+    redirect_to questions_path, notice: 'Question was successfully deleted!'
+  end
+
+    private
+
+    # Never trust parameters from the scary internet, only allow the white list through
   def question_params
     params.require(:question).permit(:title, :description)
   end
