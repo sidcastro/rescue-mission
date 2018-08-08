@@ -3,7 +3,7 @@
 <ul class="unstyled">
   <% @questions_in_reverse_order.each do |question| %>
   <li>
-    <%= question.title %>
+    <%= link_to question.title, question_path(question) %>
   </li>
   <% end %>
 </ul>
