@@ -1,2 +1,13 @@
 <h1><%= @question.title %></h1>
 <p><%= @question.description %></p>
+
+<h3> Answers: </h3>
+<ul class="unstyled">
+  <% @answers_in_reverse_order.each do |answer| %>
+  <li>
+    <%= answer.description %>
+  </li>
+  <% end %>
+</ul>
+
+<div><%= link_to "Answer this Question", new_question_answer_path(@question)%>
