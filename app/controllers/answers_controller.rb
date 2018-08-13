@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-  before_action :set_answer, only: [:show, :edit, :update, :destroy]
+  before_action :set_answer, only: [:show]
   def index
     @answers = Answer.all
     @question = Question.find(params[:question_id])
@@ -17,7 +17,7 @@ class AnswersController < ApplicationController
     @answer.question = @question
 
     if @answer.save
-      redirect_to question_path(@answer.question), notice: 'Your answer was successfully posted!'
+      redirect_to question_path(@answer.question), notice: 'Answer posted!'
     else
       render :new
     end

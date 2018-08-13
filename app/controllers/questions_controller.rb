@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      redirect_to @question, notice: 'Question was successfully posted!'
+      redirect_to @question, notice: 'Question posted!'
     else
       render action: 'new'
     end
@@ -30,7 +30,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to @question, notice: 'Question was successfully updated!'
+      redirect_to @question, notice: 'Question updated!'
     else
       render action: 'edit'
     end
@@ -38,9 +38,8 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to questions_path, notice: 'Event was successfully destroyed.'
+    redirect_to questions_path, notice: 'Question was successfully deleted!'
   end
-
 
   private
 
