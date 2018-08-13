@@ -15,11 +15,24 @@ class QuestionsController < ApplicationController
   end
 
   def create
-  @question = Question.new(question_params)
-  if @question.save
-    redirect_to @question, notice: 'Question was successfully posted!'
-  else
-    render action: 'new'
+    @question = Question.new(question_params)
+    if @question.save
+      redirect_to @question, notice: 'Question was successfully posted!'
+    else
+      render action: 'new'
+    end
+  end
+
+  def edit
+    @question = Question.find(params[:id])
+  end
+
+  def update
+    @question = Question.find(params[:id])
+    if @question.update(question_params)
+      redirect_to @question, notice: 'Question was successfully updated!'
+    else
+      render action: 'edit'
     end
   end
 
@@ -27,6 +40,6 @@ class QuestionsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through
   def question_params
-  params.require(:question).permit(:title, :description)
+    params.require(:question).permit(:title, :description)
   end
 end
