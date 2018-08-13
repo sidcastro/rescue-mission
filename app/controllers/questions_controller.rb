@@ -36,6 +36,12 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def destroy
+    @question.destroy
+    redirect_to questions_path, notice: 'Event was successfully destroyed.'
+  end
+
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
