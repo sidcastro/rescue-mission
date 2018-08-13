@@ -1,11 +1,8 @@
-<h1>Questions</h1>
+<div class="main-focus">
+  <h1>Questions</h1>
+    <p>
+      <%= render partial: "question", collection: @questions %>
+    </p>
 
-<ul class="unstyled">
-  <% @questions_in_reverse_order.each do |question| %>
-  <li>
-    <%= link_to question.title, question_path(question) %>
-  </li>
-  <% end %>
-</ul>
-
-<div><%= link_to "Ask a question", new_question_path %></div>
+  <%= link_to 'New Question', new_question_path %>
+</div>

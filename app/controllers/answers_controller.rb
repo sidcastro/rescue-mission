@@ -1,4 +1,5 @@
 class AnswersController < ApplicationController
+  before_action :set_answer, only: [:show, :edit, :update, :destroy]
   def index
     @answers = Answer.all
     @question = Question.find(params[:question_id])
@@ -23,6 +24,10 @@ class AnswersController < ApplicationController
   end
 
   private
+
+  def set_answer
+    @answer = Answer.find(params[:question_id])
+  end
 
   def answer_params
     params.require(:answer).permit(:description)

@@ -1,16 +1,27 @@
-<h1><%= @question.title %></h1>
-<p><%= @question.description %></p>
+<p id="notice"><%= notice %></p>
+<div class="main-focus">
+  <p>
+    <strong>Title:</strong>
+    <%= @question.title %>
+  </p>
 
+  <p>
+    <strong>Description:</strong>
+    <%= @question.description %>
+  </p>
 
+  <%= link_to 'Edit Question', edit_question_path(@question) %> |
+  <%= link_to 'Answer Question', new_question_answer_path(@question) %> |
+  <%= link_to 'View All Questions', questions_path %>
 
-<h3> Answers: </h3>
-<ul class="unstyled">
-  <% @answers_in_reverse_order.each do |answer| %>
-  <li>
-    <%= answer.description %>
-  </li>
-  <% end %>
-</ul>
-
-<div><%= link_to "Answer this Question", new_question_answer_path(@question)%>
-  <div><%= link_to "Edit this Question", edit_question_path(@question)%>
+  <br>
+  <br>
+  <strong>Answers:</strong>
+  <ul class="unstyled">
+    <% @answers.each do |answer| %>
+    <li>
+      <%= answer.description %>
+    </li>
+    <% end %>
+  </ul>
+</div>
