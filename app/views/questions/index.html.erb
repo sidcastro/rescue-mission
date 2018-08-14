@@ -1,8 +1,9 @@
 <div class="main-focus">
   <h1>Questions</h1>
-    <p>
-      <%= render partial: "question", collection: @questions %>
-    </p>
-
-  <%= link_to 'New Question', new_question_path %>
+  <div class="new-question-link">
+    <%= link_to 'New Question', new_question_path %>
+  </div>
+  <p>
+    <%= render partial: "question", collection: @questions %>
+  </p>
 </div>

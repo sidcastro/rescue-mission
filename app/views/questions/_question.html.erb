@@ -1,12 +1,18 @@
-<div>
-  <strong>Title:</strong>
-  <%= question.title %>
+<div class="columns">
+  <strong><%= question.title %></strong>
+  <br>
+  <br>
   <strong>Description:</strong>
   <%= question.description %>
   <br>
-  <%= link_to 'View Question', question %> |
-  <%= link_to 'Edit Question', edit_question_path(question) %> |
-  <%= link_to 'Delete', question, method: :delete, data: { confirm: 'Are you sure?' } %>
   <br>
-  <br>
+
+  <div>
+    <%= link_to 'View Question', question %> |
+    <%= link_to 'Edit Question', edit_question_path(question) %> |
+    <%= link_to 'Delete', question, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <br>
+    <br>
+    <br>
+  </div>
 </div>
