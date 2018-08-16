@@ -1,33 +1,31 @@
-<center>
-  <div class=new-question-form>
-    <%= form_with(model: question, local: true) do |form| %>
-    <% if question.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(question.errors.count, "error") %> prohibited this question from being saved:</h2>
+<div class=new-question-form>
+  <%= form_with(model: question, local: true) do |form| %>
+  <% if question.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(question.errors.count, "error") %> prohibited this question from being saved:</h2>
 
-      <ul>
-        <% question.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-    <% end %>
-
-    <div>
-      <%= form.label :title %>
-      <%= form.text_field :title, id: :question_title %>
-    </div>
-
-    <div>
-      <%= form.label :description %>
-      <%= form.text_area :description, id: :question_description %>
-    </div>
-
-    <div>
-      <%= form.submit %>
-    </div>
+    <ul>
+      <% question.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
   </div>
-  <br>
-  <%= link_to 'Back', questions_path %>
-</center>
+  <% end %>
+
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :question_title %>
+  </div>
+
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :question_description %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+</div>
+<br>
+<%= link_to 'Back', questions_path %>
 <% end %>

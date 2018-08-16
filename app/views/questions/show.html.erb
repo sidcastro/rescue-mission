@@ -1,23 +1,25 @@
-<p id="notice"><%= notice %></p>
-<div class="main-focus">
-  <p>
-    <strong>Title:</strong>
-    <%= @question.title %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= @question.description %>
-  </p>
-
+<center>
+  <br>
+  <br>
   <%= link_to 'Edit Question', edit_question_path(@question) %> |
   <%= link_to 'Answer Question', new_question_answer_path(@question) %> |
   <%= link_to 'Delete Question', @question, method: :delete, data: { confirm: 'Are you sure?' } %> |
   <%= link_to 'View All Questions', questions_path %>
+</center>
 
-  <br>
-  <br>
-  <strong>Answers:</strong>
+<p id="notice"><%= notice %></p>
+<div class="main-focus">
+  <p>
+    <h2>Title:</h2>
+    <%= @question.title %>
+  </p>
+
+  <p>
+    <h2>Description:</h2>
+    <%= @question.description %>
+  </p>
+
+  <h2>Answers:</h2>
   <ul class="unstyled">
     <% @answers.each do |answer| %>
     <li>
